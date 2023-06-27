@@ -6,11 +6,19 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+.navbar{
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  background-color: #61dafb;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+.blank{
+  color: red;
 }
 
 .App-header {
