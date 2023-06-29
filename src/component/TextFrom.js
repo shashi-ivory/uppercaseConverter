@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function TextFrom(props) {
-  const [text, setText] = useState("Enter Text here!");
+  const [text, setText] = useState("");
   const newText = text.toLocaleUpperCase();
   const lowerText = text.toLocaleLowerCase();
   //change the text into upper case
@@ -17,6 +17,9 @@ function TextFrom(props) {
   //sewt the onchange text
   const handleOnchangeText = (e) => {
     setText(e.target.value);
+  };
+  const handleClearText = () => {
+    setText("");
   };
 
   return (
@@ -44,14 +47,21 @@ function TextFrom(props) {
         </button>
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-primary me-2"
           onClick={handleLoClick}
         >
           Convert the Text into Lower Case
         </button>
+        <button
+          type="button"
+          className="btn btn-primary me-2"
+          onClick={handleClearText}
+        >
+          Clear
+        </button>
       </div>
       <div className="container my-2">
-        <h1>Your text Summery</h1>
+        <h2>Your text Summery</h2>
         <p>
           Word {text.split(" ").length} ,Character : {text.length}
         </p>
