@@ -21,6 +21,12 @@ function TextFrom(props) {
   const handleClearText = () => {
     setText("");
   };
+  const handleCopy = () => {
+    console.log("copy ", text);
+    var text = document.getElementById("myBox");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+  };
 
   return (
     <>
@@ -58,6 +64,13 @@ function TextFrom(props) {
           onClick={handleClearText}
         >
           Clear
+        </button>
+        <button
+          type="button"
+          className="btn btn-primary me-2"
+          onClick={handleCopy}
+        >
+          Copy text
         </button>
       </div>
       <div className="container my-2">
