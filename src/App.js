@@ -25,12 +25,12 @@ function App() {
       setInterval(() => {
         document.title = "Install TextUtil now..";
       }, 3000);
-      handleAlert("Dark mode has been Enable!", "Sucess");
+      handleAlert("Dark mode has been Enable!", "success");
     } else {
       setMode("light");
       // console.log("light");
       document.body.style.backgroundColor = "white";
-      handleAlert("Light mode has been Enable", "Sucess");
+      handleAlert("Light mode has been Enable", "success");
       setInterval(() => {
         document.title = "Install Now..";
       }, 1500);
