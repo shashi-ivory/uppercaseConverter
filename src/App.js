@@ -16,21 +16,25 @@ function App() {
       msg: message,
       type: type,
     });
+    setTimeout(() => {
+      setAlert(null);
+    }, 1500);
   };
   const toggleMode = () => {
     if (mode === "light") {
       setMode("dark");
       // console.log("dark");
       document.body.style.backgroundColor = "#0B1340";
+      handleAlert("Dark Mode Enable Now!!!", "success");
       setInterval(() => {
         document.title = "Install TextUtil now..";
       }, 3000);
-      handleAlert("Dark mode has been Enable!", "success");
     } else {
       setMode("light");
       // console.log("light");
       document.body.style.backgroundColor = "white";
-      handleAlert("Light mode has been Enable", "success");
+      handleAlert("Light Mode Enable Now!!!", "success");
+
       setInterval(() => {
         document.title = "Install Now..";
       }, 1500);
@@ -45,7 +49,7 @@ function App() {
         <TextFrom
           heading="Enter here Anything you Want to convert into uppper case "
           mode={mode}
-          alert={alert}
+          handleAlert={handleAlert}
         />
       </div>
     </>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function TextFrom({ heading, mode }) {
+function TextFrom({ heading, mode, handleAlert }) {
   // console.log("props", heading);
   // console.log("mode", mode);
   const [text, setText] = useState("");
@@ -10,10 +10,12 @@ function TextFrom({ heading, mode }) {
   const handleClick = () => {
     console.log("you Click button" + newText);
     setText(newText);
+    handleAlert("Convert to upperCase ", "success");
   };
   const handleLoClick = () => {
     console.log("you Click button" + lowerText);
     setText(lowerText);
+    handleAlert("converted to lowercase", "success");
   };
 
   //sewt the onchange text
