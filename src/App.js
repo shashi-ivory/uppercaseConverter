@@ -4,8 +4,12 @@ import "./App.css";
 import Navbar from "./component/Navbar";
 import TextFrom from "./component/TextFrom";
 import Alert from "./component/Alert";
+import About from "./component/About";
+import Users from "./component/Users";
+import Home from "./component/Home";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-function App() {
+export default function App() {
   // console.log(alert);
   const [mode, setMode] = useState("light");
   //weather the mode dark or light mode
@@ -42,18 +46,12 @@ function App() {
   };
 
   return (
-    <>
-      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} />
-      <div className="container my-3">
-        <TextFrom
-          heading="Enter here Anything you Want to convert into uppper case "
-          mode={mode}
-          handleAlert={handleAlert}
-        />
+    <Router>
+      <div>
+        <Navbar />
+        <About />
+        {/* <TextFrom /> */}
       </div>
-    </>
+    </Router>
   );
 }
-
-export default App;
