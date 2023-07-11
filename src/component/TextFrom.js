@@ -93,7 +93,13 @@ function TextFrom({ heading, mode, handleAlert }) {
           Your text Summery
         </h2>
         <p style={{ color: mode == "dark" ? "white" : "black" }}>
-          Word {text.split(" ").length} ,Character : {text.length}
+          Word{" "}
+          {
+            text.split(" ").filter((element) => {
+              return element.length != 0;
+            }).length
+          }{" "}
+          ,Character : {text.length}
         </p>
         <p style={{ color: mode == "dark" ? "white" : "black" }}>
           {0.008 * text.split(" ").length} Minute to Read

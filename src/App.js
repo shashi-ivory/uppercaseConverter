@@ -14,7 +14,6 @@ export default function App() {
   const [mode, setMode] = useState("light");
   //weather the mode dark or light mode
   const [alert, setAlert] = useState(null);
-  console.log(mode);
 
   const handleAlert = (message, type) => {
     setAlert({
@@ -28,7 +27,7 @@ export default function App() {
   const toggleMode = () => {
     if (mode === "light") {
       setMode("dark");
-      // console.log("dark");
+
       document.body.style.backgroundColor = "#0B1340";
       handleAlert("Dark Mode Enable Now!!!", "success");
       document.title = "Dark Mode";
@@ -40,7 +39,7 @@ export default function App() {
       // }, 1500);
     } else {
       setMode("light");
-      // console.log("light");
+
       document.body.style.backgroundColor = "white";
       handleAlert("Light Mode Enable Now!!!", "success");
       document.title = "Light Mode";
@@ -51,6 +50,7 @@ export default function App() {
     <>
       <Router>
         <Navbar toggleMode={toggleMode} mode={mode} Alert={alert} />
+        <Alert alert={alert} />
         {/* <Alert alert={alert} />
     <About mode={mode} />
     <TextFrom mode={mode} handleAlert={handleAlert} /> */}
@@ -65,9 +65,9 @@ export default function App() {
             element={<TextFrom handleAlert={handleAlert} mode={mode} />}
           />
 
-          <Route path="/About" element={<About />} />
-          <Route path="/Users" element={<Users />} />
-          <Route path="/Home" element={<Home />} />
+          <Route exact path="/About" element={<About />} />
+          <Route exact path="/Users" element={<Users />} />
+          <Route exact path="/Home" element={<Home />} mode={mode} />
         </Routes>
       </Router>
     </>
