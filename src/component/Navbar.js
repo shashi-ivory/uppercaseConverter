@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 function Navbar({ name, aboutText, mode, toggleMode }) {
   return (
     <>
-      <nav className={`navbar navbar-expand-lg  navbar-${mode} bg-${mode}`}>
+      <nav className={`navbar navbar-expand-lg  navbar-${mode} bg-${mode} `}>
         <div className="container-fluid">
-          <Link className="navbar-brand" href="/">
+          <Link className="navbar-brand" href="Navbar">
             Navbar{name}
           </Link>
           <button
@@ -22,22 +22,32 @@ function Navbar({ name, aboutText, mode, toggleMode }) {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
+              <li className="nav-item" mode={mode}>
+                <Link className="nav-link active" aria-current="page" to="Home">
                   Home
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/">
-                  {aboutText}
+              <li className="nav-item" mode={mode}>
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="About"
+                >
+                  About
                 </Link>
               </li>
 
-              <li className="nav-item">
-                <Link className="nav-link disabled">Disabled</Link>
+              <li className="nav-item" mode={mode}>
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="Disable"
+                >
+                  Disable
+                </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link " to="TextFrom">
+              <li className="nav-item" mode={mode}>
+                <Link className="nav-link active" aria-current="page" to="/ ">
                   TextFrom
                 </Link>
               </li>
@@ -58,8 +68,9 @@ function Navbar({ name, aboutText, mode, toggleMode }) {
               <label
                 className="form-check-label"
                 htmlFor="flexSwitchCheckDefault"
+                mode={mode}
               >
-                Enable Dark Mode
+                {mode}
               </label>
             </div>
           </div>

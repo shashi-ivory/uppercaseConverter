@@ -14,6 +14,7 @@ export default function App() {
   const [mode, setMode] = useState("light");
   //weather the mode dark or light mode
   const [alert, setAlert] = useState(null);
+  console.log(mode);
 
   const handleAlert = (message, type) => {
     setAlert({
@@ -30,28 +31,45 @@ export default function App() {
       // console.log("dark");
       document.body.style.backgroundColor = "#0B1340";
       handleAlert("Dark Mode Enable Now!!!", "success");
-      setInterval(() => {
-        document.title = "Install TextUtil now..";
-      }, 3000);
+      document.title = "Dark Mode";
+      // setInterval(() => {
+      //   document.title = "Install TextUtil now..";
+      // }, 3000);
+      // setInterval(() => {
+      //   document.title = "Install Now..";
+      // }, 1500);
     } else {
       setMode("light");
       // console.log("light");
       document.body.style.backgroundColor = "white";
       handleAlert("Light Mode Enable Now!!!", "success");
-
-      setInterval(() => {
-        document.title = "Install Now..";
-      }, 1500);
+      document.title = "Light Mode";
     }
   };
 
   return (
-    <Router>
-      <div>
-        <Navbar />
-        <About />
-        {/* <TextFrom /> */}
-      </div>
-    </Router>
+    <>
+      <Router>
+        <Navbar toggleMode={toggleMode} mode={mode} Alert={alert} />
+        {/* <Alert alert={alert} />
+    <About mode={mode} />
+    <TextFrom mode={mode} handleAlert={handleAlert} /> */}
+        {/* <Routes path="/" element={<TextFrom />} />
+        <Routes path="About" element={<About />} />
+        <Routes path="Home" element={<Home />} />
+        <Routes path="Users" element={<Users />} /> */}
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={<TextFrom handleAlert={handleAlert} mode={mode} />}
+          />
+
+          <Route path="/About" element={<About />} />
+          <Route path="/Users" element={<Users />} />
+          <Route path="/Home" element={<Home />} />
+        </Routes>
+      </Router>
+    </>
   );
 }

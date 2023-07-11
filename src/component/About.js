@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-function About() {
+function About({ mode }) {
   const [myStyle, setMyStyle] = useState({
-    color: "white",
-    backgroundColor: "black",
+    color: "black",
+    backgroundColor: "white",
   });
   const [buttonText, setButtonText] = useState("Enable Dark Mode");
   const toggleStyle = () => {
@@ -23,7 +23,7 @@ function About() {
   };
 
   return (
-    <div className="container" style={myStyle}>
+    <div className="container" style={myStyle} mode={mode}>
       <h1 className="my-3">About us</h1>
       <div
         className="accordion accordion-flush"

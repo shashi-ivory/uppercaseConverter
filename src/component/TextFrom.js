@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function TextFrom({ heading, mode, handleAlert }) {
   // console.log("props", heading);
-  // console.log("mode", mode);
+  console.log("mode", mode);
   const [text, setText] = useState("");
   const newText = text.toLocaleUpperCase();
   const lowerText = text.toLocaleLowerCase();
@@ -24,6 +24,7 @@ function TextFrom({ heading, mode, handleAlert }) {
   };
   const handleClearText = () => {
     setText("");
+    handleAlert("Clear Text ", "success");
   };
   const handleCopy = () => {
     console.log("copy ", text);
@@ -31,6 +32,7 @@ function TextFrom({ heading, mode, handleAlert }) {
     text.select();
     navigator.clipboard.writeText(text.value);
     console.log("copy value ", text.value);
+    handleAlert("Copy Text", "success");
   };
 
   return (
@@ -97,7 +99,7 @@ function TextFrom({ heading, mode, handleAlert }) {
           {0.008 * text.split(" ").length} Minute to Read
         </p>
         <h3 style={{ color: mode == "dark" ? "white" : "black" }}>Preview</h3>
-        <p style={{ color: mode == "dark" ? "white" : "black" }}>
+        <p style={{ color: mode === "dark" ? "white" : "black" }}>
           {text.length > 0 ? text : "Enter Some thing to preview it:"}
         </p>
       </div>
