@@ -30,7 +30,8 @@ export default function App() {
 
       document.body.style.backgroundColor = "#0B1340";
       handleAlert("Dark Mode Enable Now!!!", "success");
-      document.title = "Dark Mode";
+      // document.title = "Dark Mode";
+
       // setInterval(() => {
       //   document.title = "Install TextUtil now..";
       // }, 3000);
@@ -42,14 +43,21 @@ export default function App() {
 
       document.body.style.backgroundColor = "white";
       handleAlert("Light Mode Enable Now!!!", "success");
-      document.title = "Light Mode";
+      // document.title = "Light Mode";
     }
   };
+  const heading =
+    " Try TextUtils-Word Counter ,character counter ,remove extra spaces ";
 
   return (
     <>
       <Router>
-        <Navbar toggleMode={toggleMode} mode={mode} Alert={alert} />
+        <Navbar
+          toggleMode={toggleMode}
+          mode={mode}
+          Alert={alert}
+          heading={heading}
+        />
         <Alert alert={alert} />
         {/* <Alert alert={alert} />
     <About mode={mode} />
@@ -62,10 +70,16 @@ export default function App() {
           <Route
             exact
             path="/"
-            element={<TextFrom handleAlert={handleAlert} mode={mode} />}
+            element={
+              <TextFrom
+                handleAlert={handleAlert}
+                mode={mode}
+                heading={heading}
+              />
+            }
           />
 
-          <Route exact path="/About" element={<About />} />
+          <Route exact path="/About" element={<About mode={mode} />} />
           <Route exact path="/Users" element={<Users />} />
           <Route exact path="/Home" element={<Home />} mode={mode} />
         </Routes>

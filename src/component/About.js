@@ -1,37 +1,25 @@
 import React, { useState } from "react";
 
 function About({ mode }) {
-  const [myStyle, setMyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-  });
+  console.log("mode", mode);
   const [buttonText, setButtonText] = useState("Enable Dark Mode");
-  const toggleStyle = () => {
-    if (myStyle.color == "white" || myStyle.backgroundColor == "black") {
-      setMyStyle({
-        color: "black",
-        backgroundColor: "white",
-      });
-      setButtonText("Enable Dark Mode");
-    } else {
-      setMyStyle({
-        color: "white",
-        backgroundColor: "black",
-      });
-      setButtonText("Enable Light Mode");
-    }
+  let myStyle = {
+    color: mode === "dark" ? "white" : "black ",
+    backgroundColor: mode === "dark" ? "black" : "white",
+    border: "0.1px solid ",
+    // borderColor: mode === "dark" ? "white" : "black",
   };
 
   return (
-    <div className="container" style={myStyle} mode={mode}>
-      <h1 className="my-3">About us</h1>
+    <div className="container" style={myStyle}>
+      <h1 className="mb-2">About us</h1>
       <div
         className="accordion accordion-flush"
         id="accordionFlushExample"
         style={myStyle}
       >
-        <div className="accordion-item">
-          <h2 className="accordion-header">
+        <div className="accordion-item " style={myStyle}>
+          <h2 className="accordion-header" style={myStyle}>
             <button
               className="accordion-button collapsed"
               style={myStyle}
@@ -50,15 +38,15 @@ function About({ mode }) {
             className="accordion-collapse collapse"
             data-bs-parent="#accordionFlushExample"
           >
-            <div className="accordion-body">
+            <div className="accordion-body" style={myStyle}>
               Placeholder content for this accordion, which is intended to
               demonstrate the <code>.accordion-flush</code> class. This is the
               first item's accordion body.
             </div>
           </div>
         </div>
-        <div className="accordion-item">
-          <h2 className="accordion-header">
+        <div className="accordion-item" style={myStyle}>
+          <h2 className="accordion-header" style={myStyle}>
             <button
               style={myStyle}
               className="accordion-button collapsed"
@@ -85,8 +73,8 @@ function About({ mode }) {
             </div>
           </div>
         </div>
-        <div className="accordion-item">
-          <h2 className="accordion-header">
+        <div className="accordion-item" style={myStyle}>
+          <h2 className="accordion-header" style={myStyle}>
             <button
               style={myStyle}
               className="accordion-button collapsed"
@@ -116,11 +104,11 @@ function About({ mode }) {
           </div>
         </div>
       </div>
-      <div className="container my-3">
+      {/* <div className="container my-3">
         <button className="btn btn-primary" onClick={toggleStyle}>
           {buttonText}
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }

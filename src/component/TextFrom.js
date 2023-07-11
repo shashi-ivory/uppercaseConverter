@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
 function TextFrom({ heading, mode, handleAlert }) {
-  // console.log("props", heading);
-  console.log("mode", mode);
+  console.log("props", heading);
+  console.log("Textfrommode", mode);
   const [text, setText] = useState("");
   const newText = text.toLocaleUpperCase();
   const lowerText = text.toLocaleLowerCase();
+
   //change the text into upper case
   const handleClick = () => {
     console.log("you Click button" + newText);
@@ -36,7 +37,7 @@ function TextFrom({ heading, mode, handleAlert }) {
   };
 
   return (
-    <>
+    <div className="container">
       <h1 style={{ color: mode == "dark" ? "white" : "black" }}>{heading}</h1>
       <div className="mb-3">
         <label
@@ -44,7 +45,7 @@ function TextFrom({ heading, mode, handleAlert }) {
           className="form-label"
           style={{ color: mode == "dark" ? "white" : "black" }}
         >
-          Change the Text into UpperCase
+          {/* {heading} */}
         </label>
         <textarea
           className="form-control"
@@ -53,13 +54,14 @@ function TextFrom({ heading, mode, handleAlert }) {
           id="myBox"
           onChange={handleOnchangeText}
           style={{
-            backgroundColor: mode == "dark" ? "grey" : "white ",
+            backgroundColor: mode == "dark" ? "#212a50" : "white ",
             color: mode == "dark" ? "white" : "black",
           }}
         ></textarea>
       </div>
       <div>
         <button
+          disabled={text.length === 0}
           type="button"
           className="btn btn-primary me-2"
           onClick={handleClick}
@@ -67,6 +69,7 @@ function TextFrom({ heading, mode, handleAlert }) {
           Convert the Text into Upper Case
         </button>
         <button
+          disabled={text.length === 0}
           type="button"
           className="btn btn-primary me-2"
           onClick={handleLoClick}
@@ -74,6 +77,7 @@ function TextFrom({ heading, mode, handleAlert }) {
           Convert the Text into Lower Case
         </button>
         <button
+          disabled={text.length === 0}
           type="button"
           className="btn btn-primary me-2"
           onClick={handleClearText}
@@ -81,6 +85,7 @@ function TextFrom({ heading, mode, handleAlert }) {
           Clear
         </button>
         <button
+          disabled={text.length === 0}
           type="button"
           className="btn btn-primary me-2"
           onClick={handleCopy}
@@ -93,12 +98,12 @@ function TextFrom({ heading, mode, handleAlert }) {
           Your text Summery
         </h2>
         <p style={{ color: mode == "dark" ? "white" : "black" }}>
-          Word{" "}
+          Word
           {
             text.split(" ").filter((element) => {
               return element.length != 0;
             }).length
-          }{" "}
+          }
           ,Character : {text.length}
         </p>
         <p style={{ color: mode == "dark" ? "white" : "black" }}>
@@ -109,7 +114,7 @@ function TextFrom({ heading, mode, handleAlert }) {
           {text.length > 0 ? text : "Enter Some thing to preview it:"}
         </p>
       </div>
-    </>
+    </div>
   );
 }
 
