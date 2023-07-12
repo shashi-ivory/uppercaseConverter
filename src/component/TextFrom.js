@@ -32,6 +32,7 @@ function TextFrom({ heading, mode, handleAlert }) {
     var text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
     console.log("copy value ", text.value);
     handleAlert("Copy Text", "success");
   };
@@ -111,7 +112,7 @@ function TextFrom({ heading, mode, handleAlert }) {
         </p>
         <h3 style={{ color: mode == "dark" ? "white" : "black" }}>Preview</h3>
         <p style={{ color: mode === "dark" ? "white" : "black" }}>
-          {text.length > 0 ? text : "Enter Some thing to preview it:"}
+          {text.length > 0 ? text : "Nothing to preview it!"}
         </p>
       </div>
     </div>

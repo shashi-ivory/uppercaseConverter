@@ -52,7 +52,53 @@ function Navbar({ name, aboutText, mode, toggleMode }) {
                 </Link>
               </li>
             </ul>
-
+            <div className="d-flex">
+              <div
+                className="bg-primary rounded mx-2"
+                style={{ height: "30px", width: "30px", cursor: "pointer" }}
+                onClick={() => toggleMode("primary")}
+              ></div>
+              <div
+                className="bg-danger rounded mx-2"
+                style={{ height: "30px", width: "30px", cursor: "pointer" }}
+                onClick={() => toggleMode("danger")}
+              ></div>
+              <div
+                className="bg-warning rounded mx-2"
+                style={{ height: "30px", width: "30px", cursor: "pointer" }}
+                onClick={() => toggleMode("warning")}
+              ></div>
+              <div
+                className="bg-secondary rounded mx-2"
+                style={{ height: "30px", width: "30px", cursor: "pointer" }}
+                onClick={() => toggleMode("secondary")}
+              ></div>
+              <div
+                className="bg-success rounded mx-2"
+                style={{ height: "30px", width: "30px", cursor: "pointer" }}
+                onClick={() => toggleMode("success")}
+              ></div>
+              <div
+                className="bg-info rounded mx-2"
+                style={{ height: "30px", width: "30px", cursor: "pointer" }}
+                onClick={() => toggleMode("info")}
+              ></div>
+              <div
+                className="bg-dark rounded mx-2"
+                style={{ height: "30px", width: "30px", cursor: "pointer" }}
+                onClick={() => toggleMode("dark")}
+              ></div>
+              <div
+                className="bg-muted rounded mx-2"
+                style={{ height: "30px", width: "30px", cursor: "pointer" }}
+                onClick={() => toggleMode("muted")}
+              ></div>
+              <div
+                className="bg-white rounded mx-2"
+                style={{ height: "30px", width: "30px", cursor: "pointer" }}
+                onClick={() => toggleMode("white")}
+              ></div>
+            </div>
             <div
               className={`form-check form-switch  text-${
                 mode === "light" ? "dark" : "light"
